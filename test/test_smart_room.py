@@ -14,3 +14,8 @@ class TestSmartRoom(unittest.TestCase):
     def test_something(self, mock_object: Mock):
         # This is an example of test where I want to mock the GPIO.input() function
         pass
+    @patch.object(GPIO, "input")
+    def test_room_occupancy(self, mock_object: Mock):
+        check_room_occupancy = SmartRoom()
+        self.assertTrue(check_room_occupancy.fan_on)
+
